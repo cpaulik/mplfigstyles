@@ -1,12 +1,38 @@
 # Matplotlib figure styles #
-This is a collection of matplotlib styles. It also contains code to
+This is my very small collection of matplotlib styles. It also contains code to
 automatically size your figure to common 1 or 2 column layouts of
 scientific journals or other publications using the golden ratio.
 
-## Design details ##
-mplfigstyles uses matplotlib.rc_params_from_file to load the included
-templates in the figstyles directory. To add a style please put in in
-this directory and submit a PR against the develop branch.
+Currently I am the only user I know of but if you also want an
+installable version of your matplotlib styles feel free to use it.
 
-It uses the matplotlib.pyplot.styles.use and
-matplotlib.pyplot.styles.context functions to apply those styles.
+## Usage ##
+
+```python
+In [1]: import matplotlib.pyplot as plt
+
+In [2]: plt.style.available
+Out[2]: [u'dark_background', u'bmh', u'grayscale', u'ggplot', u'fivethirtyeight']
+
+In [3]: import mplfigstyles
+
+In [4]: plt.style.available
+Out[4]: 
+['basic_pdf',
+ u'grayscale',
+ u'bmh',
+ u'dark_background',
+ u'ggplot',
+ u'fivethirtyeight',
+ 'presentation']
+```
+
+After that you can use the new styles as [described here](http://matplotlib.org/users/style_sheets.html#customizing-plots-with-style-sheets) 
+
+## Design details ##
+
+mplfigstyles adds the figstyles directory to the
+matplotlib.pyplot.style.core.USER_LIBRARY_PATHS variable and reloads
+the library. To add a style please put in in this directory and submit
+a PR.
+
